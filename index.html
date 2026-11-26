@@ -143,6 +143,14 @@
     .earlier-role p { max-width: 28rem; color: var(--muted); font-size: .9375rem; margin-top: .15rem; }
     .sidebar { border-left: 1px solid var(--line); padding-left: 1.75rem; }
     .sidebar > section + section { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+    .sidebar > section[id]:target {
+      background: #edf5fa;
+      box-shadow: 0 0 0 .75rem #edf5fa;
+      outline: 2px solid var(--accent);
+      outline-offset: .75rem;
+      border-radius: 2px;
+    }
+    .sidebar > section[id]:target > h2 { color: var(--accent); }
     .expertise p + p { margin-top: .75rem; }
     .project + .project { margin-top: 1.4rem; }
     .project h3 { font-size: 1.0625rem; line-height: 1.4; margin-bottom: .3rem; }
@@ -209,6 +217,8 @@
       .company, .role { break-after: avoid; }
       li, .project, .education-item, .earlier-role { break-inside: avoid; }
       .sidebar > section + section { margin-top: 4mm; padding-top: 3mm; }
+      .sidebar > section[id]:target { background: transparent; box-shadow: none; outline: none; }
+      .sidebar > section[id]:target > h2 { color: inherit; }
       .expertise p + p { margin-top: 2mm; }
       .project h3, .earlier-role h3 { font-size: 9pt; }
       .project p, .project-links, .education-item, .earlier-role p { font-size: 8.5pt; }
