@@ -14,11 +14,13 @@ leadership, backend software, cloud infrastructure, distributed systems and open
 - `CNAME` — the existing custom domain, `denis.vojt.uk`.
 - `.nojekyll` — serves the static files without a Jekyll build.
 
-The page requires no JavaScript, package installation, build step or third-party
-font service. Section navigation and the PDF download are ordinary links. Mobile
-screens use a single column; desktop screens show experience alongside expertise,
-projects and education. Print styles are included; the download is the fixed
-one-page version.
+The page requires no package installation, build step or third-party font service.
+Content, section navigation and the PDF download work without JavaScript. A small
+inline script adds a temporary highlight after anchor scrolling and restarts it
+on repeated navigation. Scrolling and highlights respect reduced-motion settings.
+Mobile screens use a single column; desktop screens show experience alongside
+expertise, projects and education. Print styles are included; the download is the
+fixed one-page version.
 
 ## Editing and preview
 
