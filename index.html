@@ -1,428 +1,354 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.154.5">
-  <meta charset="utf-8" />
-  <title>CV – Denis Vojtuk</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Denis Vojťuk — Senior Engineering Manager</title>
+  <meta name="description" content="Engineering leader with 15+ years in backend software, cloud infrastructure and distributed systems. Based in Prague. Experience, open source and CV.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://denis.vojt.uk/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Denis Vojťuk — Senior Engineering Manager">
+  <meta property="og:description" content="Engineering leadership, cloud infrastructure, Kubernetes and distributed systems. Experience, open-source projects and a one-page CV.">
+  <meta property="og:url" content="https://denis.vojt.uk/">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    @font-face {
+      font-family: "IBM Plex Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("assets/fonts/ibm-plex-sans-400.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "IBM Plex Sans";
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("assets/fonts/ibm-plex-sans-500.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "IBM Plex Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("assets/fonts/ibm-plex-sans-600.woff2") format("woff2");
+    }
     :root {
-      --bg: #f9fafb;
-      --fg: #111827;
-      --muted: #4b5563;
-      --accent: #2563eb;
-      --border: #e5e7eb;
-      --chip-bg: #e5e7eb;
-      --chip-fg: #111827;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      color-scheme: light;
+      --ink: #1c2126;
+      --muted: #4a535b;
+      --line: #d5dade;
+      --accent: #174e70;
+      --paper: #fff;
+      --surround: #f4f6f7;
     }
-    * {
-      box-sizing: border-box;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    html, body { margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 2rem; }
     body {
-      font-family: var(--font-sans);
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.5;
+      margin: 0;
+      color: var(--ink);
+      background: var(--surround);
+      font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+    a { color: var(--accent); text-underline-offset: .2em; text-decoration-thickness: 1px; }
+    a:hover { color: var(--ink); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; border-radius: 2px; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3, strong { font-weight: 600; }
+    .skip-link {
+      position: absolute;
+      top: .75rem;
+      left: .75rem;
+      z-index: 5;
+      padding: .6rem 1rem;
+      background: var(--paper);
+      transform: translateY(-200%);
+    }
+    .skip-link:focus { transform: none; }
     .page {
-      max-width: 900px;
-      margin: 24px auto;
-      padding: 24px 20px 40px;
-      background: #fff;
-      border-radius: 12px;
-      border: 1px solid var(--border);
+      max-width: 1180px;
+      margin: 2.5rem auto;
+      padding: 2.75rem 3.25rem 2rem;
+      border: 1px solid #e1e5e8;
+      background: var(--paper);
     }
-    @media (min-width: 900px) {
-      .page { padding: 32px 40px 48px; margin-top: 40px; margin-bottom: 40px; }
-    }
-    h1, h2, h3 {
-      margin: 0;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.1rem; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
-    h3 { font-size: 1rem; }
-    p { margin: 4px 0 8px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
     .header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem 2rem;
+      align-items: end;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--ink);
+    }
+    h1 { font-size: clamp(2.25rem, 4.6vw, 3.5rem); line-height: 1.12; letter-spacing: -.035em; }
+    .headline { margin-top: .45rem; font-size: 1.3rem; font-weight: 500; color: var(--muted); }
+    .contact { display: grid; gap: .4rem; justify-items: end; font-size: .9375rem; }
+    .location-line { color: var(--muted); }
+    .contact-links { display: flex; flex-wrap: wrap; gap: .35rem 1rem; align-items: center; }
+    .contact-links a { text-decoration: none; }
+    .contact-links a:hover { text-decoration: underline; }
+    .download {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .55rem .9rem;
+      min-height: 44px;
+      margin-top: .3rem;
+      color: #fff;
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: .9375rem;
+    }
+    .download:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
+    .download span { border-left: 1px solid #8a939a; padding-left: .75rem; font-size: .875rem; font-weight: 400; }
+    .section-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px 32px;
-      justify-content: space-between;
-      align-items: flex-start;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 16px;
-      margin-bottom: 20px;
+      gap: .3rem 1.6rem;
+      padding: 1rem 0;
+      margin-bottom: 1.1rem;
+      border-bottom: 1px solid var(--line);
+      font-size: .875rem;
     }
-    .headline { font-size: 0.95rem; color: var(--muted); margin-top: 4px; }
-    .contact { font-size: 0.9rem; color: var(--muted); }
-    .contact a { color: var(--muted); }
-
-.layout {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-      gap: 32px;
+    .section-nav a { color: var(--muted); text-decoration: none; padding: .25rem 0; }
+    .section-nav a:hover { color: var(--ink); text-decoration: underline; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 305px; gap: 2.5rem; align-items: start; }
+    .main-column, .sidebar { min-width: 0; }
+    h2 { margin-bottom: .85rem; font-size: .875rem; line-height: 1.4; letter-spacing: .14em; text-transform: uppercase; }
+    .profile { margin-bottom: 2.25rem; }
+    .profile p { font-size: 1.125rem; line-height: 1.65; }
+    .job { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+    .job:first-of-type { border-top: 0; padding-top: 0; }
+    .company { display: flex; flex-wrap: wrap; align-items: baseline; gap: .15rem .7rem; margin-bottom: .4rem; }
+    .company h3 { font-size: 1.375rem; line-height: 1.3; letter-spacing: -.015em; }
+    .location { font-size: .875rem; color: var(--muted); }
+    .role { display: flex; align-items: baseline; justify-content: space-between; gap: .3rem 1rem; font-weight: 500; }
+    .dates { flex-shrink: 0; color: var(--muted); font-size: .9375rem; font-variant-numeric: tabular-nums; font-weight: 400; white-space: nowrap; }
+    .job ul { margin: .75rem 0 0; padding-left: 1.1rem; }
+    .job li { padding-left: .1rem; margin-bottom: .45rem; }
+    .job li:last-child { margin-bottom: 0; }
+    .job > p { margin-top: .75rem; }
+    .earlier-career { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+    .earlier-role { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-top: .8rem; }
+    .earlier-role h3 { font-size: 1rem; font-weight: 500; }
+    .earlier-role p { max-width: 28rem; color: var(--muted); font-size: .9375rem; margin-top: .15rem; }
+    .sidebar { border-left: 1px solid var(--line); padding-left: 1.75rem; }
+    .sidebar > section + section { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+    .expertise p + p { margin-top: .75rem; }
+    .project + .project { margin-top: 1.4rem; }
+    .project h3 { font-size: 1.0625rem; line-height: 1.4; margin-bottom: .3rem; }
+    .project p { font-size: 1rem; }
+    .project-links { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin-top: .45rem; font-size: .9375rem; }
+    .education-item { font-size: .9375rem; }
+    .education-item + .education-item { margin-top: 1rem; }
+    .education-item strong { display: inline-block; margin-bottom: .2rem; }
+    .languages p + p { margin-top: .2rem; }
+    .footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: 2.5rem; padding-top: 1.25rem; border-top: 2px solid var(--ink); font-size: .9375rem; }
+    .footer-meta { color: var(--muted); font-size: .875rem; }
+    @media (max-width: 1000px) {
+      .page { margin: 1.25rem; padding: 2rem; }
+      .layout { grid-template-columns: minmax(0, 1fr) 275px; gap: 1.75rem; }
+      .sidebar { padding-left: 1.5rem; }
+      .header { gap: 1rem; }
+      .headline { font-size: 1.125rem; }
+      .role { flex-wrap: wrap; gap: 0 1rem; }
     }
-    .main-col h2 {
-      margin-top: 18px;
+    @media (max-width: 760px) {
+      .page { margin: 0; padding: 1.6rem 1.25rem; border: 0; }
+      .header { grid-template-columns: 1fr; gap: 1rem; align-items: start; }
+      .contact { justify-items: start; gap: .5rem; }
+      .contact-links { gap: .4rem 1.1rem; }
+      .section-nav { gap: .25rem 1.4rem; margin-bottom: 1.25rem; }
+      .layout { grid-template-columns: 1fr; gap: 2rem; }
+      .sidebar { border-left: 0; border-top: 2px solid var(--ink); padding: 1.75rem 0 0; }
+      .profile p { font-size: 1.0625rem; }
+      .profile { margin-bottom: 1.75rem; }
+      .job { padding: 1.35rem 0; }
+      .role { justify-content: flex-start; }
+      .role .dates { margin-left: auto; }
+      .earlier-role { flex-wrap: wrap; gap: .1rem .7rem; }
+      .earlier-role .dates { margin-left: auto; }
+      .sidebar > section + section { margin-top: 1.75rem; padding-top: 1.5rem; }
+      .footer { margin-top: 2rem; }
     }
-    .main-col h3 {
-      margin-top: 10px;
-      font-size: 0.98rem;
+    @media (max-width: 390px) {
+      .role { display: block; }
+      .role .dates { display: block; margin-top: .1rem; }
+      .role + .role { margin-top: .45rem; }
     }
-    .main-col p {
-      margin-top: 4px;
-      margin-bottom: 6px;
-    }
-    @media (max-width: 799px) {
-      .layout { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    section { margin-bottom: 18px; }
-
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-    .chip {
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--chip-bg);
-      color: var(--chip-fg);
-      font-size: 0.75rem;
-      white-space: nowrap;
-    }
-
-.item { margin-bottom: 10px; }
-.item-header {
-      margin-bottom: 2px;
-    }
-    .item-title {
-      font-size: 1.0rem;
-      font-weight: 500;
-    }
-    .item-meta { font-size: 0.85rem; color: var(--muted); }
-    ul { margin: 4px 0 4px 20px; padding: 0; }
-    li { margin-bottom: 2px; font-size: 0.88rem; }
-
-    .subtle { color: var(--muted); font-size: 0.85rem; }
-
-    .keyword-highlight {
-      background: linear-gradient(to bottom, transparent 50%, rgba(37, 99, 235, 0.15) 50%);
-      font-weight: 600;
-      padding: 0 2px;
-    }
-
-    body.print-mode {
-      background: white;
-    }
-
-    body.print-mode .keyword-highlight {
-      background: none;
-      padding: 0;
-      font-weight: 600;
-    }
-
-    body.print-mode .page {
-      border: none;
-      background: white;
-      box-shadow: none;
-      margin-left: 0;
-      margin-right: auto;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
-    .print-toggle {
-      position: fixed;
-      bottom: 8px;
-      right: 8px;
-      font-size: 1rem;
-      color: var(--muted);
-      background: white;
-      padding: 4px 6px;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      line-height: 1;
-    }
-
-    .print-toggle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
     @media print {
-      .print-toggle {
-        display: none !important;
-      }
-      body {
-        background: white;
-      }
-      .page {
-        border: none;
-        background: white;
-        box-shadow: none;
-        margin-left: 0;
-        margin-right: auto;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      .layout {
-        display: grid !important;
-        grid-template-columns: minmax(0, 2fr) minmax(0, 3fr) !important;
-        gap: 32px !important;
-      }
-      .keyword-highlight {
-        background: none;
-        padding: 0;
-        font-weight: 600;
-      }
+      @page { size: A4; margin: 13mm; }
+      body { background: #fff; font-size: 9pt; line-height: 1.4; }
+      .page { max-width: none; margin: 0; padding: 0; border: 0; }
+      .skip-link, .section-nav, .download, .footer-meta { display: none; }
+      .header { grid-template-columns: 1fr auto; padding-bottom: 3mm; gap: 4mm; }
+      h1 { font-size: 25pt; }
+      .headline { font-size: 12pt; }
+      .contact { justify-items: end; font-size: 8.5pt; gap: 1mm; }
+      .layout { display: grid; grid-template-columns: minmax(0, 1fr) 57mm; gap: 6mm; padding-top: 4mm; }
+      .sidebar { border-left: 1px solid #d5dade; border-top: 0; padding: 0 0 0 4mm; }
+      h2 { font-size: 8pt; margin-bottom: 2mm; break-after: avoid; }
+      .profile { margin-bottom: 4mm; }
+      .profile p { font-size: 9pt; line-height: 1.4; }
+      .company h3 { font-size: 11pt; }
+      .location, .dates { font-size: 8pt; }
+      .role { display: flex; flex-wrap: wrap; }
+      .role .dates { display: inline; margin-top: 0; }
+      .job { padding: 3mm 0; }
+      .job li { margin-bottom: 1mm; }
+      .job ul { margin-top: 1.5mm; }
+      .company, .role { break-after: avoid; }
+      li, .project, .education-item, .earlier-role { break-inside: avoid; }
+      .sidebar > section + section { margin-top: 4mm; padding-top: 3mm; }
+      .expertise p + p { margin-top: 2mm; }
+      .project h3, .earlier-role h3 { font-size: 9pt; }
+      .project p, .project-links, .education-item, .earlier-role p { font-size: 8.5pt; }
+      .project + .project { margin-top: 3mm; }
+      .earlier-career { padding-top: 3mm; }
+      .earlier-role { margin-top: 2mm; }
+      .footer { margin-top: 4mm; padding-top: 2mm; font-size: 8pt; }
+      a { color: inherit; text-decoration: none; }
     }
   </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "url": "https://denis.vojt.uk/", "name": "Denis Vojťuk — Senior Engineering Manager", "mainEntity": {"@type": "Person", "name": "Denis Vojťuk", "jobTitle": "Senior Engineering Manager", "url": "https://denis.vojt.uk/", "email": "mailto:denis@vojt.uk", "homeLocation": {"@type": "City", "name": "Prague, Czechia"}, "sameAs": ["https://linkedin.com/in/denis-voytyuk/", "https://github.com/denisvmedia"], "knowsAbout": ["Engineering leadership", "Cloud infrastructure", "Kubernetes", "Distributed systems", "Go", "Software architecture"], "knowsLanguage": ["English", "Czech", "Russian"]}}</script>
 </head>
 <body>
-  <main class="page">
-    
-<header class="header">
-  <div>
-    <h1>Denis Vojtuk</h1>
-    <div class="headline">Senior Engineering Manager – Product Development &amp; Team Leadership · Building Customer-Facing Software · Engineering Culture &amp; Delivery Excellence · Go &amp; Clean Architecture</div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="header">
+      <div>
+        <h1>Denis Vojťuk</h1>
+        <p class="headline">Senior Engineering Manager</p>
+      </div>
+      <div class="contact">
+        <p class="location-line">Prague, Czechia · Czech citizen</p>
+        <a href="mailto:denis@vojt.uk">denis@vojt.uk</a>
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/denis-voytyuk/">LinkedIn</a>
+          <a href="https://github.com/denisvmedia">GitHub</a>
+        </div>
+        <a class="download" href="assets/Denis_Vojtuk_CV.pdf" download="Denis_Vojtuk_CV.pdf">Download CV <span>PDF · 1 page</span></a>
+      </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Page sections">
+      <a href="#experience">Experience</a>
+      <a href="#open-source">Open source</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#education">Education</a>
+    </nav>
+
+    <main class="layout" id="main">
+      <div class="main-column">
+        <section class="profile" aria-labelledby="profile-heading">
+          <h2 id="profile-heading">Profile</h2>
+          <p>Engineering leader with <strong>15+ years</strong> in backend software, cloud infrastructure and distributed systems. Led <strong>two R&amp;D teams totaling 16 engineers</strong> and took a new product from concept to first release in <strong>under a year</strong>. Combines people management, hiring and mentoring with hands-on architecture, cross-team delivery and practical AI adoption.</p>
+        </section>
+
+        <section id="experience" aria-labelledby="experience-heading">
+          <h2 id="experience-heading">Professional experience</h2>
+          <article class="job" id="experience-1">
+              <div class="company"><h3>vCluster Labs</h3><span class="location">Prague</span></div>
+              <div class="role"><span>Senior Engineering Manager</span><span class="dates">2026 – Present</span></div>
+              <ul>
+        <li>Lead nine engineers with two tech leads across Control Plane (the vCluster core) and vMetal (bare-metal and VM provisioning), now splitting into two teams.</li>
+        <li>Set priorities with the VP of Engineering and Product. Own staffing, delivery commitments and release and backport tracking so customer fixes ship on time.</li>
+        <li>Drive urgent CVE releases across Kubernetes images, vCluster and the Platform, alongside enterprise escalations and LTS maintenance.</li>
+        <li>Lead the team's shift to agent-assisted development across design, build and review.</li>
+        <li>Hiring manager for software engineering roles. Hired approximately 10 engineers in six months and developed the candidate screening process.</li>
+      </ul>
+            </article><article class="job" id="experience-2">
+              <div class="company"><h3>Veeam Software</h3><span class="location">Prague</span></div>
+              <div class="role"><span>Senior Engineering Manager</span><span class="dates">2025 – 2026</span></div><div class="role"><span>R&amp;D Team Lead</span><span class="dates">2021 – 2025</span></div>
+              <ul>
+        <li>Conceived <strong>Veeam KubeVirt Proxy</strong> (native KubeVirt backup integration with Veeam Backup &amp; Replication), secured approval at all company levels and led cross-team delivery. Delivered the first release in under a year from concept, with commercial results surpassing Kasten's soon after launch.</li>
+        <li>Led two cross-functional R&amp;D teams totaling 16 engineers, delivering Kubernetes-native backup and disaster recovery. Previously led an eight-engineer team.</li>
+        <li>Interviewed most new hires as Kasten's European team grew from 4 to 20+ engineers.</li>
+        <li>Owned delivery planning, Product alignment and senior stakeholder reporting.</li>
+        <li>Shaped engineering culture across Kasten's European teams, establishing coding standards, code review and mentoring practices.</li>
+        <li>Initiated an AI hackathon under CTO sponsorship and drove applied AI integration initiatives in the Kasten platform.</li>
+        <li>Represented Veeam at multiple KubeCon conferences and other public events.</li>
+      </ul>
+            </article><article class="job" id="experience-3">
+              <div class="company"><h3>Codership</h3><span class="location">Remote</span></div>
+              <div class="role"><span>Founding Software Engineer</span><span class="dates">2019 – 2021</span></div>
+              <ul>
+        <li>Owned backend architecture and implementation for Galera Manager, covering deployment, management, monitoring and recovery of MySQL/Galera clusters.</li>
+        <li>Built Go services, APIs and agent-based deployments for AWS, GCP and on-premises environments, with secure SSH and gRPC control channels.</li>
+        <li>Developed Prometheus-based monitoring and a declarative deployment scripting engine. Owned GitLab CI and Kubernetes delivery pipelines and mentored engineers.</li>
+      </ul>
+            </article><article class="job" id="experience-4">
+              <div class="company"><h3>Feedo</h3><span class="location">Prague</span></div>
+              <div class="role"><span>Head of Development</span><span class="dates">2018 – 2019</span></div><div class="role"><span>Senior Software Engineer and Tech Lead</span><span class="dates">2016 – 2018</span></div>
+              <ul>
+        <li>Led up to nine internal and external developers, combining people management with hands-on engineering for an e-commerce platform.</li>
+        <li>Led the transition from a legacy monolith to Kubernetes microservices. Introduced automated CI/CD, testing, observability and technology upgrades addressing security issues.</li>
+      </ul>
+            </article><article class="job" id="experience-5">
+              <div class="company"><h3>NJQ &amp; Associates</h3><span class="location">Remote · part-time advisory</span></div>
+              <div class="role"><span>Technical Advisor</span><span class="dates">2016 – Present</span></div><div class="role"><span>Founding Engineer</span><span class="dates">2012 – 2016</span></div>
+              <p>Built a custom CRM for intellectual-property services and led a small distributed team. Now advise the Managing Director on architecture and technical priorities.</p>
+            </article>
+        </section>
+
+        <section class="earlier-career" aria-labelledby="earlier-heading">
+          <h2 id="earlier-heading">Earlier career</h2>
+          <div class="earlier-role"><div><h3>Software Engineer, Hungryhouse</h3></div><span class="dates">2011 – 2012</span></div><div class="earlier-role"><div><h3>Freelance Software Engineer</h3></div><span class="dates">2008 – 2011</span></div><div class="earlier-role"><div><h3>ISP Systems Engineer</h3><p>Network design, network management software and billing systems.</p></div><span class="dates">2006 – 2008</span></div>
+        </section>
+      </div>
+
+      <aside class="sidebar" aria-label="Expertise, open source and education">
+        <section class="expertise" id="expertise" aria-labelledby="expertise-heading">
+          <h2 id="expertise-heading">Core expertise</h2>
+          <p><strong>Leadership</strong> — team building, mentoring, performance management, cross-team delivery, prioritization, stakeholder communication.</p><p><strong>Platforms</strong> — AWS, GCP, Azure, Kubernetes, Docker, distributed systems, APIs, gRPC.</p><p><strong>Engineering</strong> — Go, Bash; Python scripting in earlier projects. CI/CD, automated testing, GitLab CI, GitHub Actions, Prometheus, Grafana.</p><p><strong>AI</strong> — applied AI integration, AI assistant and MCP tooling, embedding pipelines, internal AI adoption.</p>
+        </section>
+
+        <section id="open-source" aria-labelledby="open-source-heading">
+          <h2 id="open-source-heading">Open source</h2>
+          <article class="project">
+            <h3>Ptah</h3>
+            <p>Database change-management toolkit with a Kubernetes operator, GUI Console, AI assistant and MCP integration, scoped permissions and embedding-generation migrations with verification and rollback.</p>
+            <div class="project-links"><a href="https://ptah.run">ptah.run</a></div>
+          </article>
+          <article class="project">
+            <h3>Unswell</h3>
+            <p>Offline Go linter that keeps formulaic AI-style wording out of code and documentation. Runs as CLI, library, GitHub Action and MCP server.</p>
+            <div class="project-links"><a href="https://unswell.dev/">unswell.dev</a><a href="https://github.com/stokaro/unswell">Source code</a></div>
+          </article>
+          <article class="project">
+            <h3>Prometheus Metrics Bundle</h3>
+            <p>Symfony observability integration with <strong>4.8M+ package installs</strong> since 2018.</p>
+            <div class="project-links"><a href="https://github.com/artprima/prometheus-metrics-bundle">Source code</a><a href="https://packagist.org/packages/artprima/prometheus-metrics-bundle/stats">Install statistics</a></div>
+          </article>
+        </section>
+
+        <section id="education" aria-labelledby="education-heading">
+          <h2 id="education-heading">Education</h2>
+          <div class="education-item"><strong>Master's, Economics and Company Management (Telecommunications)</strong><br>Siberian State University of Telecommunications and Information Science · 2008 – 2011</div>
+<div class="education-item"><strong>Master's, Software for Computers and Automated Systems</strong><br>Kurgan State University · 2001 – 2006</div>
+        </section>
+
+        <section class="languages" aria-labelledby="languages-heading">
+          <h2 id="languages-heading">Languages</h2>
+          <p>English, Czech — full professional</p>
+          <p>Russian — native</p>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div class="contact-links"><a href="mailto:denis@vojt.uk">denis@vojt.uk</a><a href="https://linkedin.com/in/denis-voytyuk/">LinkedIn</a><a href="https://github.com/denisvmedia">GitHub</a></div>
+      <p class="footer-meta">Updated November 2026</p>
+    </footer>
   </div>
-  <div class="contact">
-    <div>Prague, Czechia · Remote / Hybrid [🇪🇺/🇨🇿 EU/CZ Citizen]</div>
-    <div><a href="mailto:denis@vojt.uk">denis@vojt.uk</a></div>
-    <div><a href="https://linkedin.com/in/denis-voytyuk/" target="_blank" rel="noopener noreferrer">linkedin.com/in/denis-voytyuk/</a></div>
-    <div><a href="https://github.com/denisvmedia" target="_blank" rel="noopener noreferrer">github.com/denisvmedia</a></div>
-  </div>
-</header>
-
-<div class="layout">
-  <aside>
-    
-    <section>
-      <h2>Key Strengths</h2>
-      <div class="chips">
-        <span class="chip">Product development &amp; delivery</span><span class="chip">Customer-facing software</span><span class="chip">Engineering leadership</span><span class="chip">Team building &amp; scaling</span><span class="chip">Zero-to-production delivery</span><span class="chip">Cross-functional collaboration</span><span class="chip">Stakeholder alignment</span><span class="chip">Technical architecture</span><span class="chip">Engineering culture</span>
-      </div>
-    </section>
-    
-
-    
-    <section>
-      <h2>Skills</h2>
-      <div class="item">
-        <h3>Technical</h3>
-        <p class="subtle">Product development with Go, modern architectures, and cloud technologies</p>
-        <ul>
-          <li><strong>Languages &amp; Frameworks:</strong> Go (primary), JavaScript/TypeScript, Bash; building scalable backend services and APIs.</li><li><strong>Product Development:</strong> End-to-end feature delivery, API design, microservices architecture, event-driven systems.</li><li><strong>Cloud &amp; Infrastructure:</strong> AWS, Azure, GCP; Kubernetes, Docker; infrastructure as enabler for product delivery.</li><li><strong>Data &amp; Integration:</strong> MySQL/Galera, Elasticsearch, RabbitMQ; designing data models and integration patterns.</li><li><strong>Quality &amp; Delivery:</strong> CI/CD pipelines (GitLab CI, GitHub Actions), automated testing, observability (Prometheus, Grafana).</li><li><strong>Security:</strong> Secure coding practices, authentication/authorization, data protection.</li>
-        </ul>
-      </div>
-    
-
-    
-      <div class="item">
-        <h3>Leadership &amp; Ways of Working</h3>
-        <ul>
-          <li>Hybrid IC/manager: owns architecture while managing 16&#43; engineers.</li><li>Builds teams around autonomy, clear ownership, and technical standards.</li><li>Effective at building autonomous product teams in both startups and large organizations.</li><li>Values lean process with pragmatic compliance over bureaucracy.</li>
-        </ul>
-      </div>
-    </section>
-    
-
-    
-    <section>
-      <h2>Target Roles</h2>
-      <ul>
-        <li>Senior Engineering Manager – Product Development</li><li>Director of Engineering – Product &amp; Technology</li><li>VP of Engineering – Product-Focused Organizations</li>
-      </ul>
-    </section>
-    
-
-    
-    <section>
-      <h2>Education</h2>
-      
-      <div class="item">
-        <div class="item-header">
-          <div>Kurgan State University</div>
-          <div class="item-meta">2001 – 2006</div>
-        </div>
-        <p class="subtle">Master’s, Software for Computers and Automated Systems</p>
-      </div>
-      
-      <div class="item">
-        <div class="item-header">
-          <div>Siberian State University of Telecommunications and Information Science</div>
-          <div class="item-meta">2008 – 2011</div>
-        </div>
-        <p class="subtle">Master’s, Economics and Company Management (Telecommunications)</p>
-      </div>
-      
-    </section>
-    
-
-    
-    <section>
-      <h2>Languages</h2>
-      <ul>
-        <li>English – Full professional</li><li>Czech – Full professional</li><li>Russian – Native</li>
-      </ul>
-    </section>
-    
-
-    
-    <section>
-      <h2>Work Preferences</h2>
-      <ul>
-        <li>Remote or hybrid in Prague; relocation considered for significant career-boosting roles (e.g., Director/Head of Platform).</li><li>Clear ownership and responsibility boundaries; high trust; lean process with pragmatic compliance.</li><li>Avoids heavy micromanagement and process for process’s sake.</li>
-      </ul>
-    </section>
-    
-  </aside>
-  <div class="main-col">
-    <h2 id="profile">Profile</h2>
-<p>Engineering leader with 15+ years building customer-facing software products and scaling engineering teams. I lead <span class="keyword-highlight">cross-functional</span> teams that deliver business value to end users — from enterprise software to e-commerce platforms.</p>
-<p>I combine <span class="keyword-highlight">hands-on</span> technical leadership with people management: architecting solutions in Go, driving product delivery, and coaching 16+ engineers. My focus is on building autonomous teams that ship quality software to customers, not just internal tools. I&rsquo;ve grown engineering organizations, established development culture, and delivered features that directly solve customer problems.</p>
-
-
-    
-    <section>
-      <h2>Experience</h2>
-      
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">Senior Engineering Manager - Hands-on</div>
-          <div class="item-meta">Veeam Software · Prague · Apr 2025 – Present</div>
-        </div>
-        <p class="subtle">Enterprise backup & <span class="keyword-highlight">disaster recovery</span> software for business customers</p>
-        
-        <ul>
-          <li>Lead two <span class="keyword-highlight">cross-functional</span> product teams (~16 engineers) delivering customer-facing features for enterprise data protection software.</li><li>Own end-to-end delivery of major product initiatives from customer requirements through production release, coordinating across multiple teams.</li><li>Delivered <span class="keyword-highlight">KubeVirt</span> support feature from concept to customer hands, enabling protection of virtualized workloads — directly addressing customer pain points and expanding market reach.</li><li>Scaled EU engineering organization from seed team to 20+ engineers: recruited talent, built team structure, established career development frameworks.</li><li>Established engineering standards, code review culture, and quality practices across teams to ensure consistent product delivery.</li><li>Partner with Product Management on roadmap planning; represent engineering at customer events and conferences (KubeCon, WeAreDevelopers).</li>
-        </ul>
-        
-      </div>
-      
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">R&amp;D Team Lead</div>
-          <div class="item-meta">Veeam Software · Prague · Nov 2021 – Apr 2025</div>
-        </div>
-        
-        
-        <ul>
-          <li>Led product development team of 8 engineers delivering customer-facing features for enterprise backup software.</li><li>Owned end-to-end delivery of product features — from customer requirements and design through implementation, testing, and production release.</li><li>Built engineering culture through coding standards, code review practices, and <span class="keyword-highlight">hands-on</span> technical mentoring.</li><li>Collaborated with Product Management to shape product backlog, translating customer needs into deliverable features.</li>
-        </ul>
-        
-      </div>
-      
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">Founding Software Engineer (Backend)</div>
-          <div class="item-meta">Codership (Galera Cluster) · Remote · Jan 2019 – Nov 2021</div>
-        </div>
-        
-        
-        <ul>
-          <li>Early engineer building Galera Manager – an on-premise management and monitoring tool for database clusters used by enterprise customers.</li><li>Designed and implemented backend services in Go, delivering features from API design through production deployment.</li><li>Participated in hiring and onboarding of engineering team members.</li>
-        </ul>
-        
-      </div>
-      
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">Head of Development / Senior Engineer</div>
-          <div class="item-meta">Feedo® · Prague · 2016 – 2019</div>
-        </div>
-        
-        
-        <ul>
-          <li>Led engineering team of up to 9 developers building e-commerce platform serving end consumers.</li><li>Drove product development from requirements through delivery; modernized architecture from monolith to microservices to improve development velocity and user experience.</li><li>Established engineering practices: CI/CD pipelines, code quality standards, security practices, and monitoring.</li>
-        </ul>
-        
-      </div>
-      
-    </section>
-    
-
-    
-    <section>
-      <h2>Advisory Work</h2>
-      
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">Technical Advisor / Consultant</div>
-          <div class="item-meta">NJQ &amp; Associates · Remote · Sep 2012 – Present (12&#43; years, part-time)</div>
-        </div>
-        
-        
-        <ul>
-          <li>Designed and built a custom CRM platform for IP industry clients from scratch, evolving it into a core business system.</li><li>Led a small distributed engineering team, defined long-term architecture, and guided the platform through multiple iterations.</li><li>Owned development and production environments, CI/CD, and code quality processes; act as ongoing technical advisor.</li>
-        </ul>
-        
-      </div>
-      
-      <div class="item">
-        <div class="item-header">
-          <div class="item-title">External Consultant (Part-time)</div>
-          <div class="item-meta">Feedo® · Prague · 2019 – 2020</div>
-        </div>
-        
-        
-        <ul>
-          <li>Ongoing consultancy after leaving full-time role.</li><li>Technology choice advice, infrastructure optimization (performance and cost), and small programming tasks.</li>
-        </ul>
-        
-      </div>
-      
-    </section>
-    
-
-    
-    <section>
-      <h2>Personal Projects &amp; Open Source</h2>
-      <ul>
-        <li>Developed network analysis and monitoring tools: TCP/IP protocol analysis, packet inspection, and traffic pattern recognition for defensive security purposes.</li><li>Author of <a href="https://github.com/artprima/prometheus-metrics-bundle">prometheus-metrics-bundle</a> (Symfony) with <a href="https://packagist.org/packages/artprima/prometheus-metrics-bundle/stats">3.5M+ installations</a> and 170+ GitHub stars — widely adopted observability library.</li><li>Created and maintain error handling libraries and linters (Go) used in production by multiple teams (<a href="https://github.com/go-extras/errx">errx</a>, <a href="https://github.com/go-extras/nolintguard">nolintguard</a>, collaborator in <a href="https://github.com/mgechev/revive">revive</a>).</li><li>Contribute to CNCF projects (Kanister) and open source (go-extras, kopia, others).</li><li>Recognized as an Arctic Code Vault Contributor with achievements such as Pull Shark and Starstruck.</li>
-      </ul>
-    </section>
-    
-  </div>
-</div>
-
-<footer class="subtle" style="margin-top:24px;">
-  Available for remote or hybrid roles in Prague. Relocation considered for senior leadership opportunities.
-</footer>
-
-
-  </main>
-  <button class="print-toggle" onclick="togglePrintMode()" title="Print">🖨️</button>
-  <script>
-    function togglePrintMode() {
-      const wasPrintMode = document.body.classList.contains('print-mode');
-      const btn = document.querySelector('.print-toggle');
-
-      if (!wasPrintMode) {
-        
-        document.body.classList.add('print-mode');
-        btn.textContent = '🖥️';
-        btn.title = 'Exit Print Mode';
-        
-        setTimeout(() => {
-          window.print();
-        }, 100);
-      } else {
-        
-        document.body.classList.remove('print-mode');
-        btn.textContent = '🖨️';
-        btn.title = 'Print';
-      }
-    }
-  </script>
 </body>
 </html>
