@@ -47,7 +47,7 @@
       --surround: #f4f6f7;
     }
     * { box-sizing: border-box; }
-    html { scroll-padding-top: 2rem; }
+    html { scroll-padding-top: 2rem; scroll-behavior: smooth; }
     body {
       margin: 0;
       color: var(--ink);
@@ -143,14 +143,29 @@
     .earlier-role p { max-width: 28rem; color: var(--muted); font-size: .9375rem; margin-top: .15rem; }
     .sidebar { border-left: 1px solid var(--line); padding-left: 1.75rem; }
     .sidebar > section + section { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
-    .sidebar > section[id]:target {
-      background: #edf5fa;
-      box-shadow: 0 0 0 .75rem #edf5fa;
-      outline: 2px solid var(--accent);
-      outline-offset: .75rem;
-      border-radius: 2px;
+    @media screen {
+      .sidebar > section[id] {
+        background-color: transparent;
+        box-shadow: 0 0 0 .75rem transparent;
+        outline: 2px solid transparent;
+        outline-offset: .75rem;
+        border-radius: 2px;
+        transition: background-color .7s ease, box-shadow .7s ease, outline-color .7s ease;
+      }
+      .sidebar > section[id] > h2 { transition: color .7s ease; }
+      html:not(.has-highlight-navigation) .sidebar > section[id]:target,
+      .sidebar > section[id].is-highlighted {
+        background-color: #edf5fa;
+        box-shadow: 0 0 0 .75rem #edf5fa;
+        outline-color: var(--accent);
+        transition-duration: .35s;
+      }
+      html:not(.has-highlight-navigation) .sidebar > section[id]:target > h2,
+      .sidebar > section[id].is-highlighted > h2 {
+        color: var(--accent);
+        transition-duration: .35s;
+      }
     }
-    .sidebar > section[id]:target > h2 { color: var(--accent); }
     .expertise p + p { margin-top: .75rem; }
     .project + .project { margin-top: 1.4rem; }
     .project h3 { font-size: 1.0625rem; line-height: 1.4; margin-bottom: .3rem; }
@@ -193,6 +208,10 @@
       .role .dates { display: block; margin-top: .1rem; }
       .role + .role { margin-top: .45rem; }
     }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .sidebar > section[id], .sidebar > section[id] > h2 { transition: none; }
+    }
     @media print {
       @page { size: A4; margin: 13mm; }
       body { background: #fff; font-size: 9pt; line-height: 1.4; }
@@ -217,8 +236,6 @@
       .company, .role { break-after: avoid; }
       li, .project, .education-item, .earlier-role { break-inside: avoid; }
       .sidebar > section + section { margin-top: 4mm; padding-top: 3mm; }
-      .sidebar > section[id]:target { background: transparent; box-shadow: none; outline: none; }
-      .sidebar > section[id]:target > h2 { color: inherit; }
       .expertise p + p { margin-top: 2mm; }
       .project h3, .earlier-role h3 { font-size: 9pt; }
       .project p, .project-links, .education-item, .earlier-role p { font-size: 8.5pt; }
@@ -360,5 +377,63 @@
       <p class="footer-meta">Updated November 2026</p>
     </footer>
   </div>
+  <script>
+    (() => {
+      const sections = document.querySelectorAll('.sidebar > section[id]');
+      let pendingSection = null;
+      let pendingUntil = 0;
+      let scrollTimer;
+      let highlightTimer;
+
+      function showHighlight() {
+        clearTimeout(scrollTimer);
+        if (!pendingSection) return;
+        if (Date.now() > pendingUntil) {
+          pendingSection = null;
+          return;
+        }
+        const section = pendingSection;
+        const root = document.documentElement;
+        const targetTop = section.getBoundingClientRect().top;
+        const scrollPadding = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+        const atPageEnd = window.scrollY >= root.scrollHeight - root.clientHeight - 2;
+        // Ignore scrollend from earlier scrolling until the anchor has actually arrived.
+        if (Math.abs(targetTop - scrollPadding) > 2 && !(atPageEnd && targetTop >= scrollPadding)) {
+          scrollTimer = setTimeout(showHighlight, 150);
+          return;
+        }
+        pendingSection = null;
+        if (!section.matches(':target')) return;
+        section.classList.add('is-highlighted');
+        highlightTimer = setTimeout(() => section.classList.remove('is-highlighted'), 2000);
+      }
+
+      function waitForScroll() {
+        clearTimeout(scrollTimer);
+        // Also handles browsers without scrollend and links that do not move the page.
+        if (pendingSection) scrollTimer = setTimeout(showHighlight, 150);
+      }
+
+      function queueHighlight() {
+        clearTimeout(highlightTimer);
+        sections.forEach(section => section.classList.remove('is-highlighted'));
+        pendingSection = document.querySelector('.sidebar > section[id]:target');
+        pendingUntil = Date.now() + 4000;
+        waitForScroll();
+      }
+
+      document.documentElement.classList.add('has-highlight-navigation');
+      document.addEventListener('scroll', waitForScroll, { passive: true });
+      document.addEventListener('scrollend', () => showHighlight());
+      window.addEventListener('hashchange', queueHighlight);
+      window.addEventListener('pageshow', queueHighlight);
+      document.querySelector('.section-nav').addEventListener('click', event => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (!event.target.closest('a[href^="#"]')) return;
+        // Keep native anchor navigation; restart the cue even when the hash is unchanged.
+        setTimeout(queueHighlight, 0);
+      });
+    })();
+  </script>
 </body>
 </html>
